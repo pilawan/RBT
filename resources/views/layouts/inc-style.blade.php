@@ -7,6 +7,31 @@
 <link href="{{url('assets/css/skins/square/grey.css')}}" rel="stylesheet">
 <link href="{{url('assets/css/date_time_picker.css')}}" rel="stylesheet">
 
+{{-- kik --}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>CloudUi Premium Bootstrap Admin Dashboard Template</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200&display=swap" rel="stylesheet">
+
+
+<link href="{{url('vendors/iconfonts/simple-line-icon/css/simple-line-icons.css')}}" rel="stylesheet">
+<link href="{{url('vendors/iconfonts/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
+
+<link href="{{url('vendors/css/vendor.bundle.base.css')}}" rel="stylesheet">
+<link href="{{url('vendors/css/vendor.bundle.addons.css')}}" rel="stylesheet">
+
+<link href="{{url('css/style.css')}}" rel="stylesheet">
+<link href="{{url('../../vendors/iconfonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+<link href="{{url('images/favicon.png')}}" rel="stylesheet">
+<link href="{{url('vendors/iconfonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
+<link href="{{url('css/regisshop.css')}}" rel="stylesheet">
+
+{{-- end kik --}}
+
 <!--[if lt IE 9]>
   <script src="js/html5shiv.min.js"></script>
   <script src="js/respond.min.js"></script>

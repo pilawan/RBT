@@ -1,3 +1,21 @@
+
+
+
+
+<script src="{{url('vendors/js/vendor.bundle.base.js')}}"></script>
+<script src="{{url('js/template.js')}}"></script>
+<script src="{{url('js/dashboard.js')}}"></script>
+<script src="{{url('js/todolist.js')}}"></script>
+<script src="{{url('../../js/formpickers.js')}}"></script>
+<script src="{{url('../../js/form-addons.js')}}"></script>
+<script src="{{url('../../js/x-editable.js')}}"></script>
+<script src="{{url('../../js/dropify.js')}}"></script>
+<script src="{{url('../../js/dropzone.js')}}"></script>
+<script src="{{url('../../js/jquery-file-upload.js')}}"></script>
+<script src="{{url('../../js/form-repeater.js')}}"></script>
+
+
+
 <!-- Common scripts -->
 <script src="{{url('assets/js/jquery-1.11.2.min.js')}}"></script>
 <script src="{{url('assets/js/common_scripts_min.js')}}"></script>
@@ -184,3 +202,6 @@ $('input').iCheck({
       });
     });
 </script>
+
+
+

@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="utf-8">
+    {{-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
@@ -22,7 +23,7 @@
     <meta property="og:image:height" content="314" />
     <meta property="fb:app_id" content="935699479860195">
     <meta property="fb:admins" content="100002037238809">
-
+ --}}
 
     @include('layouts.inc-style')
     @yield('stylesheet')
@@ -32,7 +33,7 @@
 
 
 
-    @include('layouts.inc-header')
+@include('layouts.inc-header')
 
 
 
@@ -50,7 +51,7 @@
 
 
 
-    @include('layouts.inc-footer')
+    {{-- @include('layouts.inc-footer') --}}
 
     <!-- JavaScripts -->
     @include('layouts.inc-script')

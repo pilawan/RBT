@@ -1,0 +1,61 @@
+
+/* span.header{
+    font-size: 1vh;
+} */
+
+/* table tr td button.edit_btn{font-weight: 500;} */
+
+body,html,h1,h2,h3,h4,h5,h6,p,strong,a,button,label{
+    font-family:Mitr!important ;
+}
+
+.form-control{ font-family:Mitr ;}
+p.mar-r-5{
+    margin-right: 5vh;
+    padding-top:5px;
+    margin-left:5vh;
+}
+
+ nav.float-r{
+    float:right;
+}
+
+small{
+   
+    margin-right: 5vh;
+    padding-top:5px;
+}
+
+
+ .card .card-body-10 {
+    padding: 10px 30px;
+}
+.text-primary, .navbar.horizontal-layout .nav-bottom .page-navigation > .nav-item.mega-menu .submenu .category-heading{
+    text-decoration: underline;
+    padding: 1vh;  
+}
+
+
+.text-danger-pad {
+    padding: 1vh;
+}
+
+
+.h6, h6 {
+    font-size: .8rem;
+}
+#font-w{
+    font-weight: bolder;
+}
+
+.table td .badge, .jsgrid .jsgrid-table td .badge, .table th .badge, .jsgrid .jsgrid-table th .badge{
+    width: 100px;
+}
+.table-responsive{
+    scrollbar-width:none;
+    
+}
+
+@media (min-width: 1200px){
+.container {max-width: 1240px;}
+}

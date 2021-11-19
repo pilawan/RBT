@@ -1,18 +1,12 @@
 @extends('layouts.template')
 
 
-    <title>หน้าสมัครร้านค้า</title>
+@section('title')
+เกี่ยวกับเรา
+@stop
 
-
-     {{-- @include('layouts.inc-style') --}}
      @section('stylesheet')
-    
-
-    
-
-
-
-  
+     @stop('stylesheet')
 
 
     @section('content')
@@ -263,3 +257,7 @@
     
     
 
+    @endsection
+
+@section('scripts')
+@stop('scripts')

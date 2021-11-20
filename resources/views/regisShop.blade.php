@@ -128,6 +128,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @if(isset($data))
+                                            @foreach($data as $u)
+                                       
                                             <tr>
                                                 <td>29 ต.ค. 2564</td>
                                                 <td>ศิรินทรา เศรษฐีอนันต์</td>
@@ -205,7 +208,9 @@
                                                 </td>
                                             </tr>
 
-
+                                            @endforeach
+                                            @endif
+                  
                                         </tbody>
                                     </table>
 

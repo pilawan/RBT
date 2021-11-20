@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CloudUi Premium Bootstrap Admin Dashboard Template</title>
-
-   
-    @include('layouts.inc-style')
-    @yield('stylesheet')
+@extends('layouts.template')
 
 
-</head>
+@section('title')
+เกี่ยวกับเรา
+@stop
 
-<body>
-    @include('layouts.inc-header')
-    
+     @section('stylesheet')
+     @stop('stylesheet')
+
+
+    @section('content')
+  
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
             <div class="content-wrapper">
@@ -335,7 +329,7 @@
     </div>
 
 
-    <!-- container-scroller -->
+    {{-- <!-- container-scroller -->
 
     <!-- plugins:js -->
     <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -350,10 +344,11 @@
     <script src="js/dashboard.js"></script>
     <script src="js/todolist.js"></script>
     <script src="../../js/jquery-file-upload.js"></script>
-    <!-- End custom js for this page-->
+    <!-- End custom js for this page--> --}}
 
 
 
-</body>
+    @endsection
 
-</html>
+    @section('scripts')
+    @stop('scripts')

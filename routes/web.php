@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/','App\Http\Controllers\Controller@index');
+Route::get('inform/','App\Http\Controllers\HomeController@index');
 // Route::get('regis/','App\Http\Controllers\Controller@regis');
-// Route::get('inform/','App\Http\Controllers\Controller@inform');
+
 Route::resource('regis', 'App\Http\Controllers\HomeController');
 Route::get('regis/', 'App\Http\Controllers\HomeController@users');
+// Route::get('inform/','App\Http\Controllers\HomeController@informa');
+
+
+Route::get('/inform/{id}', 'App\Http\Controllers\HomeController@blog_detail');
 
 // Route::get('regis/','HomeController@regis');
 // Route::get('inform/','HomeController@inform');

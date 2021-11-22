@@ -10,11 +10,13 @@
 
 
     @section('content')
-  
+    {{-- @if(isset($data_tatal))
+    @foreach($data_tatal as $u) --}}
+
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
             <div class="content-wrapper">
-                <h4 style="padding-bottom: 12px;">เทสเตอร์</h4>
+                <h4 style="padding-bottom: 12px;">{{$u['merchantName']}}</h4>
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
@@ -39,7 +41,7 @@
                                         <h6>ชื่อผู้ติดต่อ</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">ศิรินทรา เศรษฐีอนันต์</p>
+                                        <p class=" text-muted mb-2">  เศรษฐีอนันต์</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>อีเมล</h6>
@@ -325,7 +327,8 @@
             </div>
         </div>
     </div>
-
+ {{-- @endforeach
+ @endif --}}
     </div>
 
 

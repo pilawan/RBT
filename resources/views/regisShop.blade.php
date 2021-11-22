@@ -132,81 +132,21 @@
                                             @foreach($data as $u)
                                        
                                             <tr>
-                                                <td>29 ต.ค. 2564</td>
-                                                <td>ศิรินทรา เศรษฐีอนันต์</td>
-                                                <td>เทสเตอร์ จำกัด</td>
-                                                <td>083-903-2345</td>
+                                                <td>{{$u['registerDateTime']}}</td>
+                                                <td>{{$u['contactName']}}  </td>
+                                                <td>{{$u['merchantName']}}</td>
+                                                <td>{{$u['tel']}}</td>
                                                 <td>Biller ID</td>
-                                                <td>PrompPay, Credit Card (QR Credit). Alipay, WeChat</td>
-                                                <td><label class="badge badge-warning">รอดำเนินการ</label></td>
+                                                <td>{{$u['paymentChannel']}}</td>
+                                                <td><label class="badge badge-warning">{{$u['registerState']}}</label></td>
                                                 <td>
-                                                    <button type="button"
-                                                        class="edit_btn btn btn-outline-primary ">ดู/แก้ไข</button>
-                                                    <button type="button"
-                                                        class="btn btn-outline-danger edit_btn">ลบ</button>
+                                                    <a href="{{ url('inform/'.$u['id']) }}" class="btn btn-outline-primary btn-sm">ดู/แก้ไข</a>
+                                                <button class="btn btn-outline-danger edit_btn">ลบ</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>29 ต.ค. 2564</td>
-                                                <td>วศิน กาญจนาวงษ์</td>
-                                                <td>กาญจนาการค้า</td>
-                                                <td>090-509-5654</td>
-                                                <td>Biller ID</td>
-                                                <td>Alipay, WeChat</td>
-                                                <td><label class="badge badge-warning">เอกสารไม่ครบ</label></td>
-                                                <td>
-                                                    <button type="button"
-                                                        class="btn btn-outline-primary edit_btn">ดู/แก้ไข</button>
-                                                    <button type="button"
-                                                        class="btn btn-outline-danger edit_btn">ลบ</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>27 ต.ค. 2564</td>
-                                                <td>อธิคุณ อนัตพิศัย</td>
-                                                <td>อีซี่โพสแอนต์โมบายจำกัด</td>
-                                                <td>090-509-5654</td>
-                                                <td>Biller ID</td>
-                                                <td>Alipay, WeChat</td>
-                                                <td><label class="badge badge-success">ผ่าน</label></td>
-                                                <td>
-                                                    <button type="button"
-                                                        class="btn btn-outline-primary edit_btn">ดู/แก้ไข</button>
-                                                    <button type="button"
-                                                        class="btn btn-outline-danger edit_btn">ลบ</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>26 ต.ค. 2564</td>
-                                                <td>มานะ วงศาโรตน์</td>
-                                                <td>M-commerc co.,Ltd</td>
-                                                <td>083-555-3435</td>
-                                                <td>Biller ID</td>
-                                                <td>Alipay, WeChat</td>
-                                                <td><label class="badge badge-danger">ติดต่อไม่ได้</label></td>
-                                                <td>
-                                                    <button type="button"
-                                                        class="btn btn-outline-primary edit_btn">ดู/แก้ไข</button>
-                                                    <button type="button"
-                                                        class="btn btn-outline-danger edit_btn">ลบ</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td>25 ต.ค. 2564</td>
-                                                <td>ภัทร พูลจำเริญ</td>
-                                                <td>ภัทรพูลจำเริญ จำกัด</td>
-                                                <td>080-999-9999</td>
-                                                <td>Biller ID, API</td>
-                                                <td>Alipay, WeChat</td>
-                                                <td><label class="badge badge-danger">ไม่ผ่าน</label></td>
-                                                <td>
-                                                    <button type="button"
-                                                        class="btn btn-outline-primary edit_btn">ดู/แก้ไข</button>
-                                                    <button type="button"
-                                                        class="btn btn-outline-danger edit_btn">ลบ</button>
-                                                </td>
-                                            </tr>
+                                            {{-- @endforeach
+                                            @endif --}}
+                                      
 
                                             @endforeach
                                             @endif
@@ -217,7 +157,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 d-flex">
-                                        <p class="mar-r-5">ดู</p>
+                                        <p class="mar-r-5" >ดู</p>
 
                                         <form class="forms-sample ">
 

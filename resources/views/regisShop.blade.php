@@ -159,26 +159,37 @@
                                     <div class="col-6 d-flex">
                                         <p class="mar-r-5" >ดู</p>
 
-                                        <form class="forms-sample ">
+                                        <form class="forms-sample" method="GET" action="{{ url('/regis') }}" enctype="multipart/form-data">
 
-                                            <select class="form-control" name="tatalshow" style="width:60px;">
+                                            <select class="form-control mar-r-5" name="totalshow" onchange="this.form.submit()" style="width:60px;">
 
-                                                <option>1</option>
                                                 <option>2</option>
-                                                <option>3</option>
                                                 <option>4</option>
+                                                <option>6</option>
+                                                <option>8</option>
                                             </select>
                                         </form>
                                         <p class="mar-r-5">รายการต่อหน้า</p>
-                                        <small class="text-muted "> 1-6 รายการ จาก 6 รายการ</small>
+                                        <small class="text-muted mar-r-5">{{ $data->currentPage() }}-{{ $data->lastPage() }} รายการ จาก {{ $data->lastPage() }} รายการ</small>
 
                                     </div>
                                     <div class="col-6">
                                         <nav>
-                                            <ul class="pagination d-flex justify-content-end ">
-                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-
+                                            @if ($data->lastPage() > 1)
+                                            <ul class="pagination">
+                                                <li class="page-item {{ ($data->currentPage() == 1) ? ' disabled' : '' }}">
+                                                    <a class="page-link" href="{{ url('/regi').$data->url(1) }}">Previous</a>
+                                                </li>
+                                                @for ($i = 1; $i <= $data->lastPage(); $i++)
+                                                    <li class="page-item {{ ($data->currentPage() == $i) ? ' active' : '' }}">
+                                                        <a class="page-link" href="{{ url('/regi').$data->url($i) }}">{{ $i }}</a>
+                                                    </li>
+                                                @endfor
+                                                <li class="page-item {{ ($data->currentPage() == $data->lastPage()) ? ' disabled' : '' }}">
+                                                    <a class="page-link" href="{{ url('/regi').$data->url($data->currentPage()+1) }}" >Next</a>
+                                                </li>
                                             </ul>
+                                            @endif
                                         </nav>
 
                                     </div>

@@ -10,32 +10,26 @@ use Illuminate\Support\Collection;
 
 class HomeController extends Controller
 {
-    public function index(){
-        return view('information');
+   
+
+   
+   
+    public function index(Request $request){
+
+        $response = Http::accept('application/json')->get('https://merchant.siamtheatre.com/api/v1/merchant/register',
+        [
+            'Page' => 1,
+            'PageSize' => 100
+        ]);
+        $perPage = 10;
+        $collection = collect(json_decode($response, true));
+        $search = '';
+        $data = $this->paginate($collection['items'], $perPage);
+        $data_tatal = $collection['items'];
+
+        return view('regisShop', compact('data', 'data_tatal', 'search'));
+
     }
-
-    public function informa(){
-        return view('information');
-    }
-    public function regis(){
-        return view('regisShop');
-    }
-    // public function index(Request $request){
-
-    //     $response = Http::accept('application/json')->get('https://merchant.siamtheatre.com/api/v1/merchant/register',
-    //     [
-    //         'Page' => 1,
-    //         'PageSize' => 100
-    //     ]);
-    //     $perPage = 10;
-    //     $collection = collect(json_decode($response, true));
-    //     $search = '';
-    //     $data = $this->paginate($collection['items'], $perPage);
-    //     $data_tatal = $collection['items'];
-
-    //     return view('regisShop', compact('data', 'data_tatal', 'search'));
-
-    // }
 
     public function users(Request $request){
 
@@ -66,11 +60,12 @@ class HomeController extends Controller
              $response = Http::accept('application/json')->get('https://merchant.siamtheatre.com/api/v1/merchant/temp/'.$id);
 
                 $collection = collect(json_decode($response, true));
-                // dd($collection); 
+                dd($collection); 
                 // $data = $this->paginate($collection['items'], $perPage);
-                $data_tatal = $collection;
+                $data = $collection;
+                // dd($collection['services']);
                 // $search = $request->search;
-         return view('information',  compact('data_tatal'));
+         return view('information',  compact('data'));
     }
    
     public function paginate($items, $perPage, $page = null, $options = [])

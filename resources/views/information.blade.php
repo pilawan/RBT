@@ -10,8 +10,9 @@
 
 
     @section('content')
-    @if(isset($data_tatal))
-    @foreach($data_tatal as $u)
+    
+    @if(isset($data))
+    
 
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
@@ -26,7 +27,7 @@
                                         <h4 class="card-title">ข้อมูลการสมัคร</h4>
                                     </div>
                                     <div class="col-6 grid-margin ">
-                                        <label class="badge badge-warning " style="float: right">{{$u['registerStateName']}}</label>
+                                        <label class="badge badge-warning " style="float: right">{{$data['registerStateName']}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -41,19 +42,19 @@
                                         <h6>ชื่อผู้ติดต่อ</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">{{$u['contractFirstname']}}</p>
+                                        <p class=" text-muted mb-2">{{$data['contractFirstname']}} {{$data['contractLastname']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>อีเมล</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">{{$u['email']}}</p>
+                                        <p class=" text-muted mb-2">{{$data['email']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6 class="mb-2">เบอร์โทร</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">{{$u['tel']}}</p>
+                                        <p class=" text-muted mb-2">{{$data['tel']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>ประเภทองค์กร</h6>
@@ -65,13 +66,13 @@
                                         <h6>ชื่อร้านค้า</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">{{$u['merchantName']}}</p>
+                                        <p class=" text-muted mb-2">{{$data['merchantName']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>เว็บไซต์เพจ</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-primary mb-2" href="#" style="padding: 0;">{{$u['url']}}</p>
+                                        <p class="text-primary mb-2" href="#" style="padding: 0;">{{$data['url']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>ประเภทกิจการ</h6>
@@ -90,10 +91,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">บริการที่ต้องการสมัคร</h4>
+                                @foreach($data['services'] as $u) 
                                     <div class="col-lg-8">
-                                        <p class=" text-muted card-description mb-0">QR Payment</p>
+                                        <p class=" text-muted card-description mb-0">{{$u['name']}}</p>
                                     </div>
-                                
+                                    @endforeach
                             </div>
                         </div>
                     </div>
@@ -104,11 +106,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title" >ช่องทางการชำระเงินที่สมัคร</h4>
+                                
                                 <div class="form-group row">
                                     <div class="col-lg-8">
-                                        <p class=" text-muted card-description mb-0">PrompPay, Credit Card (QR Credit). Alipay, WeChat</p>
+                                        <p class=" text-muted card-description mb-0">@foreach($data['paymentChannels'] as $u) {{$u['name']}}   @endforeach</p>
                                     </div>
                                 </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -327,7 +331,7 @@
             </div>
         </div>
     </div>
- @endforeach
+
  @endif
     </div>
 

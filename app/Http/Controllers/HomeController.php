@@ -69,8 +69,8 @@ class HomeController extends Controller
                 // dd($collection); 
                 // $data = $this->paginate($collection['items'], $perPage);
                 $data_tatal = $collection;
-                $search = $request->search;
-         return view('information',  compact('data_tatal', 'search'));
+                // $search = $request->search;
+         return view('information',  compact('data_tatal'));
     }
    
     public function paginate($items, $perPage, $page = null, $options = [])

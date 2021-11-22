@@ -10,13 +10,13 @@
 
 
     @section('content')
-    {{-- @if(isset($data_tatal))
-    @foreach($data_tatal as $u) --}}
+    @if(isset($data_tatal))
+    @foreach($data_tatal as $u)
 
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
             <div class="content-wrapper">
-                <h4 style="padding-bottom: 12px;">{{$u['merchantName']}}</h4>
+                <h4 style="padding-bottom: 12px;"></h4>
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
@@ -26,7 +26,7 @@
                                         <h4 class="card-title">ข้อมูลการสมัคร</h4>
                                     </div>
                                     <div class="col-6 grid-margin ">
-                                        <label class="badge badge-warning " style="float: right">รอติดต่อกลับ</label>
+                                        <label class="badge badge-warning " style="float: right">{{$u['registerStateName']}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -41,19 +41,19 @@
                                         <h6>ชื่อผู้ติดต่อ</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">  เศรษฐีอนันต์</p>
+                                        <p class=" text-muted mb-2">{{$u['contractFirstname']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>อีเมล</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">sirintra@gmail.com</p>
+                                        <p class=" text-muted mb-2">{{$u['email']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6 class="mb-2">เบอร์โทร</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">083-903-2345</p>
+                                        <p class=" text-muted mb-2">{{$u['tel']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>ประเภทองค์กร</h6>
@@ -65,13 +65,13 @@
                                         <h6>ชื่อร้านค้า</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class=" text-muted mb-2">เทสเตอร์จำกัด</p>
+                                        <p class=" text-muted mb-2">{{$u['merchantName']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>เว็บไซต์เพจ</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-primary mb-2" href="#" style="padding: 0;">www.sample.com</p>
+                                        <p class="text-primary mb-2" href="#" style="padding: 0;">{{$u['url']}}</p>
                                     </div>
                                     <div class="col-lg-3">
                                         <h6>ประเภทกิจการ</h6>
@@ -327,8 +327,8 @@
             </div>
         </div>
     </div>
- {{-- @endforeach
- @endif --}}
+ @endforeach
+ @endif
     </div>
 
 

@@ -195,15 +195,15 @@
                                         @if ($data->lastPage() > 1)
                                         <ul class="pagination">
                                             <li class="page-item {{ ($data->currentPage() == 1) ? ' disabled' : '' }}">
-                                                <a class="page-link" href="{{ url('/regi').$data->url(1) }}">Previous</a>
+                                                <a class="page-link" href="{{ url('/regis').$data->url(1) }}&totalshow={{ $totalshow }}">Previous</a>
                                             </li>
                                             @for ($i = 1; $i <= $data->lastPage(); $i++)
                                                 <li class="page-item {{ ($data->currentPage() == $i) ? ' active' : '' }}">
-                                                    <a class="page-link" href="{{ url('/regi').$data->url($i) }}">{{ $i }}</a>
+                                                    <a class="page-link" href="{{ url('/regis').$data->url($i) }}&totalshow={{ $totalshow }}">{{ $i }}</a>
                                                 </li>
                                             @endfor
                                             <li class="page-item {{ ($data->currentPage() == $data->lastPage()) ? ' disabled' : '' }}">
-                                                <a class="page-link" href="{{ url('/regi').$data->url($data->currentPage()+1) }}" >Next</a>
+                                                <a class="page-link" href="{{ url('/regis').$data->url($data->currentPage()+1) }}&totalshow={{ $totalshow }}" >Next</a>
                                             </li>
                                         </ul>
                                         @endif

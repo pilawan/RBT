@@ -37,7 +37,9 @@ class HomeController extends Controller
         $data = $this->paginate($collection['items'], $perPage);
         $data_tatal = $collection['items'];
 
-        return view('admin/regisShop', compact('data', 'data_tatal', 'search'));
+        $totalshow = $request->totalshow;
+
+        return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow'));
 
     }
 

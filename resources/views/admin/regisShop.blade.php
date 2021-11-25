@@ -24,14 +24,14 @@
                     <div class="col-md-4">
 
                         <div class="form-group">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="{{ url('regis') }}" method="GET" enctype="multipart/form-data">
                                 <label>ค้นหา</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control"
                                         placeholder="ชื่อ-นามสกุล ผู้ติดต่อ ร้านค้า เบอร์โทร"
-                                        aria-label="Recipient's username">
+                                        aria-label="Recipient's username" name="search" value="{{ $search }}">
                                     <div class="input-group-append">
-                                        <button class="btn btn-sm btn-primary" type="button">ค้นหา</button>
+                                        <button class="btn btn-sm btn-primary" type="submit">ค้นหา</button>
                                     </div>
                                 </div>
                             </form>

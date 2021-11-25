@@ -65,6 +65,8 @@ class HomeController extends Controller
         $data_tatal = $collection['items'];
       
         $search = $request->search;
+        // $search = $request->get('search');
+
         return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow'));
     }
 

@@ -171,10 +171,20 @@
                                     <form class="forms-sample" method="GET" action="{{ url('regis') }}" enctype="multipart/form-data">
                                       {{ csrf_field() }}
                                         <select class="form-control mar-r-5" name="totalshow" onchange="this.form.submit()" style="width:80px;">
-                                          <option value="1">1</option>
-                                          <option value="2">2</option>
-                                          <option value="5">5</option>
-                                          <option value="10">10</option>
+                                          <option value="1" 
+                                          @if( $totalshow == 1)
+                                            selected='selected'
+                                            @endif
+                                            >1</option>
+                                          <option value="2" @if( $totalshow == 2)
+                                            selected='selected'
+                                            @endif>2</option>
+                                          <option value="5" @if( $totalshow == 5)
+                                            selected='selected'
+                                            @endif>5</option>
+                                          <option value="10" @if( $totalshow == 10)
+                                            selected='selected'
+                                            @endif>10</option>
                                         </select> 
                                     </form>
                                         <p class="mar-r-5">รายการต่อหน้า </p> 

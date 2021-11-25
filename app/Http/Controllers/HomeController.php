@@ -54,13 +54,16 @@ class HomeController extends Controller
         }else{
             $perPage = 10;
         }
+
+        $totalshow = $request->totalshow;
         
         $collection = collect(json_decode($response, true));
     //    dd($collection);
         $data = $this->paginate($collection['items'], $perPage);
         $data_tatal = $collection['items'];
+      
         $search = $request->search;
-        return view('admin/regisShop', compact('data', 'data_tatal', 'search'));
+        return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow'));
     }
 
    

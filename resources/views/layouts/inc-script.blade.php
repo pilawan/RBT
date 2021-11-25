@@ -2,18 +2,27 @@
 
 
 
+<script src="{{ url('back/js/dashboard.js') }}"></script>
+<script src="{{ url('back/js/todolist.js') }}"></script>
+<script src="{{ url('back/vendors/summernote/dist/summernote-bs4.min.js') }}"></script>
+<script src="{{ url('back/js/dropify.js') }}"></script>
+<script src="{{ url('back/js/formpickers.js') }}"></script>
+<script src="{{ url('back/js/form-addons.js') }}"></script>
+<script src="{{ url('slideout/dist/slideout.js') }}"></script>
 <script src="{{url('vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{url('js/template.js')}}"></script>
 <script src="{{url('js/dashboard.js')}}"></script>
 <script src="{{url('js/todolist.js')}}"></script>
-<script src="{{url('../../js/formpickers.js')}}"></script>
-<script src="{{url('../../js/form-addons.js')}}"></script>
-<script src="{{url('../../js/x-editable.js')}}"></script>
-<script src="{{url('../../js/dropify.js')}}"></script>
-<script src="{{url('../../js/dropzone.js')}}"></script>
-<script src="{{url('../../js/jquery-file-upload.js')}}"></script>
-<script src="{{url('../../js/form-repeater.js')}}"></script>
+<script src="{{url('js/formpickers.js')}}"></script>
+<script src="{{url('js/form-addons.js')}}"></script>
+<script src="{{url('js/x-editable.js')}}"></script>
+<script src="{{url('js/dropify.js')}}"></script>
+<script src="{{url('js/dropzone.js')}}"></script>
+<script src="{{url('js/jquery-file-upload.js')}}"></script>
+<script src="{{url('js/form-repeater.js')}}"></script>
+<script src="{{url('locales/bootstrap-datepicker.de.js')}}"></script>
 
+{{-- <script type = "text/javascript" src = "bootstrap-datepicker.de.js" charset = "UTF-8" ></script>  --}}
 
 
 <!-- Common scripts -->

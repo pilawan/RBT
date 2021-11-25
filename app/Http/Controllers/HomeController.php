@@ -12,6 +12,16 @@ class HomeController extends Controller
 {
    
 
+    public function store(){
+
+        return view('admin/store');
+
+    }
+    public function company(){
+
+        return view('admin/company');
+
+    }
    
    
     public function index(Request $request){
@@ -27,7 +37,7 @@ class HomeController extends Controller
         $data = $this->paginate($collection['items'], $perPage);
         $data_tatal = $collection['items'];
 
-        return view('regisShop', compact('data', 'data_tatal', 'search'));
+        return view('admin/regisShop', compact('data', 'data_tatal', 'search'));
 
     }
 
@@ -50,22 +60,22 @@ class HomeController extends Controller
         $data = $this->paginate($collection['items'], $perPage);
         $data_tatal = $collection['items'];
         $search = $request->search;
-        return view('regisShop', compact('data', 'data_tatal', 'search'));
+        return view('admin/regisShop', compact('data', 'data_tatal', 'search'));
     }
 
    
 
-    public function blog_detail($id){
+    public function blog_detail($userId){
         
-             $response = Http::accept('application/json')->get('https://merchant.siamtheatre.com/api/v1/merchant/temp/'.$id);
+             $response = Http::accept('application/json')->get('https://merchant.siamtheatre.com/api/v1/merchant/temp/'.$userId);
 
                 $collection = collect(json_decode($response, true));
-                dd($collection); 
+                // dd($collection); 
                 // $data = $this->paginate($collection['items'], $perPage);
                 $data = $collection;
                 // dd($collection['services']);
                 // $search = $request->search;
-         return view('information',  compact('data'));
+         return view('admin/information',  compact('data'));
     }
    
     public function paginate($items, $perPage, $page = null, $options = [])

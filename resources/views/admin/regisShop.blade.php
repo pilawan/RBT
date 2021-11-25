@@ -77,7 +77,7 @@
 
                             <label>วันที่เริ่มต้น</label>
                             <div id="-datepicker-popup" class="input-group date datepicker">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="31 ต.ค. 2564">
                                 <span class="input-group-addon input-group-append border-left">
                                     <span class="icon-calendar input-group-text"></span>
                                 </span>
@@ -99,6 +99,7 @@
                                     <span class="icon-calendar input-group-text"></span>
                                 </span>
                             </div>
+
 
                         </div>
 
@@ -131,21 +132,31 @@
                                             @if(isset($data))
                                             @foreach($data as $u)
                                        
-                                            <tr>
+                                            <tr access_id="{{$u['id']}}">
                                                 <td>{{$u['registerDateTime']}}</td>
                                                 <td>{{$u['contactName']}}  </td>
                                                 <td>{{$u['merchantName']}}</td>
                                                 <td>{{$u['tel']}}</td>
                                                 <td>Biller ID</td>
                                                 <td>{{$u['paymentChannel']}}</td>
+
+                                                @if($u['registerState'] == "เอกสารไม่ครบ"||$u['registerState'] == "รอการติดต่อ")
                                                 <td><label class="badge badge-warning">{{$u['registerState']}}</label></td>
+                                                 @endif
+
+                                                @if($u['registerState'] == "ไม่ผ่าน")
+                                                <td><label class="badge badge-danger">{{$u['registerState']}}</label></td>
+                                                @endif
+
+                                                @if($u['registerState'] == "ผ่าน")
+                                                <td><label class="badge badge-success">{{$u['registerState']}}</label></td>
+                                                @endif 
                                                 <td>
                                                     <a href="{{ url('inform/'.$u['id']) }}" class="btn btn-outline-primary btn-sm">ดู/แก้ไข</a>
                                                 <button class="btn btn-outline-danger edit_btn">ลบ</button>
                                                 </td>
                                             </tr>
-                                            {{-- @endforeach
-                                            @endif --}}
+                                        
                                       
 
                                             @endforeach
@@ -156,40 +167,36 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 d-flex">
-                                        <p class="mar-r-5" >ดู</p>
-
-                                        <form class="forms-sample" method="GET" action="{{ url('/regis') }}" enctype="multipart/form-data">
-
-                                            <select class="form-control mar-r-5" name="totalshow" onchange="this.form.submit()" style="width:60px;">
-
-                                                <option>2</option>
-                                                <option>4</option>
-                                                <option>6</option>
-                                                <option>8</option>
-                                            </select>
-                                        </form>
-                                        <p class="mar-r-5">รายการต่อหน้า</p>
+                                    <div class="col-6 d-flex"><p class="mar-r-5">ดู</p> 
+                                    <form class="forms-sample" method="GET" action="{{ url('regis') }}" enctype="multipart/form-data">
+                                      {{ csrf_field() }}
+                                        <select class="form-control mar-r-5" name="totalshow" onchange="this.form.submit()" style="width:80px;">
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="5">5</option>
+                                          <option value="10">10</option>
+                                        </select> 
+                                    </form>
+                                        <p class="mar-r-5">รายการต่อหน้า </p> 
                                         <small class="text-muted mar-r-5">{{ $data->currentPage() }}-{{ $data->lastPage() }} รายการ จาก {{ $data->lastPage() }} รายการ</small>
-
                                     </div>
                                     <div class="col-6">
-                                        <nav>
-                                            @if ($data->lastPage() > 1)
-                                            <ul class="pagination">
-                                                <li class="page-item {{ ($data->currentPage() == 1) ? ' disabled' : '' }}">
-                                                    <a class="page-link" href="{{ url('/regi').$data->url(1) }}">Previous</a>
+                                      <nav class="pull-right">
+                                        @if ($data->lastPage() > 1)
+                                        <ul class="pagination">
+                                            <li class="page-item {{ ($data->currentPage() == 1) ? ' disabled' : '' }}">
+                                                <a class="page-link" href="{{ url('/regi').$data->url(1) }}">Previous</a>
+                                            </li>
+                                            @for ($i = 1; $i <= $data->lastPage(); $i++)
+                                                <li class="page-item {{ ($data->currentPage() == $i) ? ' active' : '' }}">
+                                                    <a class="page-link" href="{{ url('/regi').$data->url($i) }}">{{ $i }}</a>
                                                 </li>
-                                                @for ($i = 1; $i <= $data->lastPage(); $i++)
-                                                    <li class="page-item {{ ($data->currentPage() == $i) ? ' active' : '' }}">
-                                                        <a class="page-link" href="{{ url('/regi').$data->url($i) }}">{{ $i }}</a>
-                                                    </li>
-                                                @endfor
-                                                <li class="page-item {{ ($data->currentPage() == $data->lastPage()) ? ' disabled' : '' }}">
-                                                    <a class="page-link" href="{{ url('/regi').$data->url($data->currentPage()+1) }}" >Next</a>
-                                                </li>
-                                            </ul>
-                                            @endif
+                                            @endfor
+                                            <li class="page-item {{ ($data->currentPage() == $data->lastPage()) ? ' disabled' : '' }}">
+                                                <a class="page-link" href="{{ url('/regi').$data->url($data->currentPage()+1) }}" >Next</a>
+                                            </li>
+                                        </ul>
+                                        @endif
                                         </nav>
 
                                     </div>

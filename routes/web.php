@@ -24,7 +24,8 @@ Route::get('regis/', 'App\Http\Controllers\HomeController@users');
 // Route::get('inform/','App\Http\Controllers\HomeController@informa');
 
 
-Route::get('/inform/{id}', 'App\Http\Controllers\HomeController@blog_detail');
-
+Route::get('/inform/{userId}', 'App\Http\Controllers\HomeController@blog_detail');
+Route::get('store/','App\Http\Controllers\HomeController@store');
+Route::get('company/','App\Http\Controllers\HomeController@company');
 // Route::get('regis/','HomeController@regis');
 // Route::get('inform/','HomeController@inform');

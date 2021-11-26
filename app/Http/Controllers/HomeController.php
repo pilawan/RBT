@@ -38,8 +38,9 @@ class HomeController extends Controller
         $data_tatal = $collection['items'];
 
         $totalshow = $request->totalshow;
+        $status = $request->status;
 
-        return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow'));
+        return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow','status'));
 
     }
 
@@ -49,7 +50,9 @@ class HomeController extends Controller
         [
             'Page' => 1,
             'PageSize' => 100,
-            'Keyword' => $request->search
+            'Keyword' => $request->search,
+            'Status'=> $request->status,
+            'PaymentChannel'=> $request->payment
         ]);
         if(isset($request->totalshow)){
             $perPage = $request->totalshow;
@@ -57,17 +60,18 @@ class HomeController extends Controller
             $perPage = 10;
         }
 
-        $totalshow = $request->totalshow;
-        
+
+       
+        $payment = $request->payment;
+        $status = $request->status;
+        $totalshow = $request->totalshow;        
         $collection = collect(json_decode($response, true));
     //    dd($collection);
         $data = $this->paginate($collection['items'], $perPage);
         $data_tatal = $collection['items'];
-      
         $search = $request->search;
         // $search = $request->get('search');
-
-        return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow'));
+        return view('admin/regisShop', compact('data', 'data_tatal', 'search', 'totalshow','status','payment'));
     }
 
    

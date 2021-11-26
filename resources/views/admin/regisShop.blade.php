@@ -41,16 +41,40 @@
                     <div class="col-md-2">
 
                         <div class="form-group">
-
+                            <form class="forms-sample" method="GET" action="{{ url('regis') }}" enctype="multipart/form-data">
                             <label>ช่องทางการชำระเงิน</label>
-                            <select class="form-control" id="exampleSelectGender">
-                                <option>ทั้งหมด</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
+                            {{-- {{ csrf_field() }} --}}
+                            <select class="form-control" id="exampleSelectGender"name="PaymentChannel" onchange="this.form.submit()">
+                                <option value="ทั้งหมด">ทั้งหมด</option>
+                                <option value="PromptPay" 
+                                @if( $payment == "PromptPay")
+                                selected='selected'
+                                @endif
+                                  >PromptPay</option>
 
+                                  <option value="CreditCard" 
+                                  @if( $payment == "CreditCard")
+                                  selected='selected'
+                                  @endif
+                                    >CreditCard</option> 
+
+                                    <option value="Airpay" 
+                                    @if( $payment == "Airpay")
+                                    selected='selected'
+                                    @endif
+                                      >Airpay</option>  
+
+                                      <option value="Wechat" 
+                                      @if( $payment == "Wechat")
+                                      selected='selected'
+                                      @endif
+                                        >Wechat</option>  
+                                {{-- <option value="PromptPay">PromptPay</option> --}}
+                                {{-- <option value="CreditCard">CreditCard</option> --}}
+                                {{-- <option value="Airpay">Airpay</option> --}}
+                                {{-- <option value="Wechat">Wechat</option> --}}
+                            </select>
+                            </form>
                         </div>
 
                     </div>
@@ -60,11 +84,13 @@
 
                             <label>สถานะ</label>
                             <select class="form-control" id="exampleSelectGender">
-                                <option>ทั้งหมด</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                                <option value="{{$status}}">ทั้งหมด</option>
+                                <option>รอการติดต่อ</option>
+                                <option>เอกสารไม่ครบ</option>
+                                <option>ผ่าน</option>
+                                <option>ติดต่อไม่ได้</option>
+                                <option>ไม่ผ่าน</option>
+
                             </select>
 
                         </div>
@@ -144,7 +170,7 @@
                                                 <td><label class="badge badge-warning">{{$u['registerState']}}</label></td>
                                                  @endif
 
-                                                @if($u['registerState'] == "ไม่ผ่าน")
+                                                @if($u['registerState'] == "ไม่ผ่าน"||$u['registerState'] == "ติดต่อไม่ได้")
                                                 <td><label class="badge badge-danger">{{$u['registerState']}}</label></td>
                                                 @endif
 
@@ -171,20 +197,20 @@
                                     <form class="forms-sample" method="GET" action="{{ url('regis') }}" enctype="multipart/form-data">
                                       {{ csrf_field() }}
                                         <select class="form-control mar-r-5" name="totalshow" onchange="this.form.submit()" style="width:80px;">
-                                          <option value="1" 
-                                          @if( $totalshow == 1)
+                                          <option value="10" 
+                                          @if( $totalshow == 10)
                                             selected='selected'
                                             @endif
-                                            >1</option>
-                                          <option value="2" @if( $totalshow == 2)
+                                            >10</option>
+                                          <option value="20" @if( $totalshow == 20)
                                             selected='selected'
-                                            @endif>2</option>
-                                          <option value="5" @if( $totalshow == 5)
+                                            @endif>20</option>
+                                          <option value="50" @if( $totalshow == 50)
                                             selected='selected'
-                                            @endif>5</option>
-                                          <option value="10" @if( $totalshow == 10)
+                                            @endif>50</option>
+                                          <option value="100" @if( $totalshow == 100)
                                             selected='selected'
-                                            @endif>10</option>
+                                            @endif>100</option>
                                         </select> 
                                     </form>
                                         <p class="mar-r-5">รายการต่อหน้า </p> 
